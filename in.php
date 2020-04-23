@@ -16,5 +16,11 @@
     $day=date(d);
     $month=date(m);
     $year=date(Y);
-    mysql_query("INSERT INTO `pm` (`mac`, `cpu`, `totalram`, `freeram`, `sec`, `min`, `hour`, `day`, `month`, `year`) VALUES ('$mac','$cpu','$totalram','$freeram','$sec','$min','$hour','$day','$month','$year')");
+    $d=mysql_query("SELECT * FROM `pm` WHERE `mac`='$mac'");
+    $a=mysql_num_rows($d);
+    if($a!==0){
+        mysql_query("UPDATE `pm` SET `cpu`='$cpu',`totalram`='$totalram',`freeram`='$freeram',`sec`='$sec',`min`='$min',`hour`='$hour',`day`='$day',`month`='$month',`year`='$year' WHERE `mac`='$mac'");
+    }else{
+        mysql_query("INSERT INTO `pm` (`mac`, `cpu`, `totalram`, `freeram`, `sec`, `min`, `hour`, `day`, `month`, `year`) VALUES ('$mac','$cpu','$totalram','$freeram','$sec','$min','$hour','$day','$month','$year')");
+    }
 ?>
