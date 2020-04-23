@@ -7,9 +7,10 @@
     mysql_select_db($mysql_database); 
     mysql_set_charset('utf8');
     
-    $d=mysql_query("SELECT * FROM `pm`");
-    $a=mysql_num_rows($d);
-    $n=mysql_query("SELECT * FROM `pm` WHERE `entry`='$a'");
+    $mac=$_GET[mac];
+    
+    $n=mysql_query("SELECT * FROM `pm` WHERE `mac`='$mac'");
+
     $z = mysql_fetch_array($n);
     $ramtrue=($z[totalram]/1024)/1024;
     $time="$z[day]-$z[month]-$z[year], $z[hour]:$z[min]:$z[sec]";
