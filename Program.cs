@@ -9,7 +9,7 @@ using System.Management;
 
 //Here is code for Performance Monitor
 //by Puzzak
-//See more @ https://github.com/Puzzak/PerformanceMonitor/new/master
+//See more @ https://github.com/Puzzak/PerformanceMonitor
 
 
 namespace PerformanceMonitor
@@ -30,7 +30,6 @@ namespace PerformanceMonitor
                         break;
                     }
                 }
-
                 return macAddresses;
             }
             PerformanceCounter cpuCounter;
@@ -47,8 +46,7 @@ namespace PerformanceMonitor
             {
                 Capacity += Convert.ToUInt64(WniPART.Properties["Capacity"].Value);
             }
-
-
+            
             Console.WriteLine("Mac: "+GetMacAddress());
             Console.SetWindowSize(20, 1);
             Console.SetCursorPosition(0, 0);
@@ -67,7 +65,6 @@ namespace PerformanceMonitor
                     Console.SetCursorPosition(0, 0);
                 
                 Thread.Sleep(1000);
-
             }
             Console.ReadLine();
         }
